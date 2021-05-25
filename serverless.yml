@@ -6,16 +6,9 @@ package:
 
 custom:
   profiles:
-    local: your-app-local
     dev: your-app-dev
-    qa: your-app-qa
-    prod: your-app-prod
   storage:
-    local: dev
-    test: test
     dev: dev
-    qa: qa
-    prod: prod
   serverless-offline:
     httpPort: 8080
     useChildProcesses: true
