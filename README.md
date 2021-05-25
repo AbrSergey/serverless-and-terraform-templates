@@ -20,13 +20,13 @@ For start the project you need install to your computer:
 
 After install this packages, open terminal and will do the following steps:
 
-2. go to _terraform/dev_
-3. create S3 bucket manually through AWS Console for store terraform state versions
-4. execute command _terraform init_
-5. execute command _terraform apply_ (don't forget confirm actions with type word _yes_)
-6. go to root folder execute command _serverless deploy --stage dev_
-7. open AWS console and go to S3 service -> _your-app-dev-website-{random}_ -> _permissions_ -> _ACL_ -> _edit_ -> delete check box near _List_
-8. Congratulations! :smiley: It must work! :pray:
+1. go to _terraform/dev_
+2. create S3 bucket manually through AWS Console for store terraform state versions
+3. execute command _terraform init_
+4. execute command _terraform apply_ (don't forget confirm actions with type word _yes_)
+5. go to root folder execute command _serverless deploy --stage dev_
+6. open AWS console and go to S3 service -> _your-app-dev-website-{random}_ -> _permissions_ -> _ACL_ -> _edit_ -> delete check box near _List_
+7. Congratulations! :smiley: It must work! :pray:
 
 **Note:** in file _terraform/dev/variables.tf_ you can change settings. For example service_name or db_instance.
 
