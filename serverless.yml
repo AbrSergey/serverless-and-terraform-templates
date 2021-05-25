@@ -1,0 +1,59 @@
+service: your-app
+app: your-app
+
+package:
+  individually: true
+
+custom:
+  profiles:
+    local: your-app-local
+    dev: your-app-dev
+    qa: your-app-qa
+    prod: your-app-prod
+  storage:
+    local: dev
+    test: test
+    dev: dev
+    qa: qa
+    prod: prod
+  serverless-offline:
+    httpPort: 8080
+    useChildProcesses: true
+  webpack:
+    webpackConfig: "./webpack.config.js"
+    includeModules: true
+  splitStacks:
+    perFunction: true
+    perType: false
+    perGroupFunction: false
+  apiGatewayCaching:
+    enabled: false
+
+provider:
+  name: aws
+  versionFunctions: false
+  runtime: nodejs12.x
+  memorySize: 512
+  stage: ${opt:stage, 'dev'}
+  profile: ${self:custom.profiles.${opt:stage, self:provider.stage, 'dev'}}
+  lambdaHashingVersion: 20201221
+  apiGateway:
+    minimumCompressionSize: 1024
+    shouldStartNameWithService: true
+  environment:
+    REGION: us-east-1
+    STAGE: ${self:provider.stage, 'dev'}
+
+functions:
+  - ${file(./serverless/functions-hello-world.yml)}
+
+resources:
+  Resources: ${file(./serverless/resources.yml)}
+
+frameworkVersion: ">=1.83.2"
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-plugin-split-stacks
+  - serverless-api-gateway-caching
+  - serverless-prune-plugin

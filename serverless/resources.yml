@@ -1,0 +1,34 @@
+GatewayResponseDefault4XX:
+  Type: "AWS::ApiGateway::GatewayResponse"
+  Properties:
+    ResponseParameters:
+      gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+      gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+    ResponseType: DEFAULT_4XX
+    RestApiId:
+      Ref: "ApiGatewayRestApi"
+
+defaultRole:
+  Type: AWS::IAM::Role
+  Properties:
+    Path: "/"
+    RoleName: defaultRole-${self:provider.stage}
+    AssumeRolePolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+          Action: sts:AssumeRole
+    Policies:
+      - PolicyName: LambdaDefaultPolicy
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource: "*"
