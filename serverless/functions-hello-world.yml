@@ -1,7 +1,0 @@
-functionHelloWorld:
-  handler: helloWorld.handler
-  role: defaultRole
-  events:
-    - http:
-        method: get
-        path: hello-world
