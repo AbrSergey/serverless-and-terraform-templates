@@ -2,7 +2,7 @@
 
 It is **template** for create application with Serverless framework and Node.js for AWS provider.
 
-In folder **serverless** you can find terraform scripts for create AWS services automatically.
+In folder _terraform_ you can find terraform scripts for create AWS services automatically.
 
 ## **Details**
 
