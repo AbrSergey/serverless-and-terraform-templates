@@ -28,7 +28,7 @@ After install this packages, open terminal and will do the following steps:
 6. open AWS console and go to S3 service -> _your-app-dev-website-{random}_ -> _permissions_ -> _ACL_ -> _edit_ -> delete check box near _List_
 7. Congratulations! :smiley: It must work! :pray:
 
-**Note:** in file _terraform/dev/variables.tf_ you can change settings. For example service_name or db_instance.
+**Note:** in file _terraform/dev/variables.tf_ you can change settings. For example _service_name_ or _db_instance_.
 
 # **Useful commands**
 
