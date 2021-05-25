@@ -40,11 +40,11 @@ After install this packages, open terminal and will do the following steps:
 
 `sls deploy function -f functionHelloWorld` - for deploy specific.
 
-`sls remove` - delete all lambdas
+`sls logs -f functionHelloWorld` - get logs of lambda
 
 `sls prune -n 10` - for delete old versions
 
-`sls logs -f functionHelloWorld` - get logs of lambda
+`sls remove` - delete all lambdas
 
 ## **Terraform commands**
 
