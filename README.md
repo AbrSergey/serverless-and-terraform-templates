@@ -38,7 +38,7 @@ After install this packages, open terminal and will do the following steps:
 
 `sls deploy` - for deploy.
 
-`function sls deploy function -f functionHelloWorld` - for deploy specific.
+`sls deploy function -f functionHelloWorld` - for deploy specific.
 
 `sls remove` - delete all lambdas
 
